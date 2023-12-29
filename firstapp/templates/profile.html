@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class='text-center'>profile page</h1>
+{% if messages %}
+
+{% for m in messages %}
+
+<div class="alert alert-success mx-auto p-2" style='width: 30%;'>
+    {{ m }}
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+<p class='text-center'><a class='btn btn-info' href="{% url "pass_change" %} ">passord change</a>
+    <a class='btn btn-danger' href="{% url "pass_change2" %} "> password change without old password</a></p>
+
+
+{% endblock content %}
