@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for message in logout_message %}
+    <div class="alert alert-success mx-auto p-2" style='width: 30%;'>
+        {{ message }}
+    </div>
+{% endfor %}
+<h1 class='text-center'>home page</h1>
+
+{% endblock content %}

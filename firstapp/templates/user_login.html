@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+
+{% if messages %}
+
+{% for m in messages %}
+
+<div class="alert alert-success mx-auto p-2" style='width: 30%;'>
+    {{ m }}
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+{% if form.errors %}
+    <div class="alert alert-danger mx-auto p-2" style='width: 30%;'>
+        <strong>Error:</strong> Please check your username and password.
+    </div>
+{% endif %}
+
+
+
+<form method='post' style='width: 50%; margin: auto;' novalidate>
+
+    {% csrf_token %}
+
+    {% if form.non_fields_errors %}
+    
+    {% for er in form.non_fields_errors %}
+    
+    <p>{{er}}</p>
+    
+    {% endfor %}
+
+    {% endif %}
+
+
+<!--{{form| crispy}}-->    
+{% for fm in form %}
+
+<div>{{fm.label_tag}}
+    {{fm}}
+    {{fm.errors|striptags}}</div>
+
+    
+{% endfor %}
+
+<button type='submit' class='btn btn-primary mt-2'> Login </button>
+</form>
+
+
+{% endblock content %}
